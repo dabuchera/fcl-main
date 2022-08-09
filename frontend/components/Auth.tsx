@@ -29,7 +29,7 @@ export default function Auth() {
     )
   } else {
     return (
-      <SecondaryButton type="button" onClick={handleLogIn}>Connect Wallet</SecondaryButton>
+      <SecondaryButton type="button" onClick={handleLogIn} style={{zIndex:1000}}>Connect Wallet</SecondaryButton>
     )
   }
 }
