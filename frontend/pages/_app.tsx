@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <TransactionToastProvider>
           <Toaster position="bottom-right" />
           <Cesium />
-          <Panel/>
+          { true ? <Panel /> : null }
         </TransactionToastProvider>
       </StacksProvider>
     </>
