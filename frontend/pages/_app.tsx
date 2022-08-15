@@ -7,14 +7,19 @@ import StacksProvider from '../providers/StacksProvider'
 
 import Head from 'next/head'
 import dynamic from 'next/dynamic'
-import Auth from '../components/Auth'
-import Panel from '../components/Panel'
+import MainPanel from '../components/MainPanel'
+import SQueryPanel from '../components/SQueryPanel'
+import { useState } from 'react'
 
 const Cesium = dynamic(() => import('../components/cesium/Cesium'), {
   ssr: false,
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+  const [isVisibleSQueryPanel, setisVisibleSQueryPanel] = useState('none')
+
+
   return (
     <>
       <Head>
@@ -24,7 +29,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <TransactionToastProvider>
           <Toaster position="bottom-right" />
           <Cesium />
-          { true ? <Panel /> : null }
+          <MainPanel changeSqueryVisibility={setisVisibleSQueryPanel}/>
+          <SQueryPanel isVisible={isVisibleSQueryPanel} changeSqueryVisibility={setisVisibleSQueryPanel}/>
         </TransactionToastProvider>
       </StacksProvider>
     </>
